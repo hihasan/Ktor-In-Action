@@ -1,13 +1,13 @@
 package com.example
 
-import io.ktor.server.routing.*
+import io.ktor.routing.*
 import io.ktor.http.*
-import io.ktor.serialization.kotlinx.json.*
-import io.ktor.server.plugins.*
+import io.ktor.serialization.*
+import io.ktor.features.*
 import org.slf4j.event.*
-import io.ktor.server.request.*
-import io.ktor.server.application.*
-import io.ktor.server.response.*
+import io.ktor.request.*
+import io.ktor.application.*
+import io.ktor.response.*
 import kotlin.test.*
 import io.ktor.server.testing.*
 import com.example.plugins.*
