@@ -1,6 +1,6 @@
 package com.example.routes
 
-import com.example.models.ApiResponse
+import com.example.models.PaginatedApiResponse
 import com.example.repository.HeroRepository
 import io.ktor.application.*
 import io.ktor.http.*
@@ -25,13 +25,13 @@ fun Route.getAllHeroes(){
             )
         } catch (e : NumberFormatException){
             call.respond(
-                message = ApiResponse(success = false, message = "Only Numbers Allowed."),
+                message = PaginatedApiResponse(success = false, message = "Only Numbers Allowed."),
                 status = HttpStatusCode.BadRequest
 
             )
         } catch (e : IllegalArgumentException){
             call.respond(
-                message = ApiResponse(success = false, message = " Heroes Not Found."),
+                message = PaginatedApiResponse(success = false, message = " Heroes Not Found."),
                 status = HttpStatusCode.BadRequest
             )
         }

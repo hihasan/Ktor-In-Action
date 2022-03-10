@@ -1,6 +1,6 @@
 package com.example.repository
 
-import com.example.models.ApiResponse
+import com.example.models.PaginatedApiResponse
 import com.example.models.Hero
 
 interface  HeroRepository {
@@ -12,6 +12,6 @@ interface  HeroRepository {
     val page4 : List<Hero>
     val page5 : List<Hero>
 
-    suspend fun getAllHeroes(page : Int = 1) : ApiResponse
-    suspend fun searchHeroes(name : String?) : ApiResponse
+    suspend fun getAllHeroes(page : Int = 1) : PaginatedApiResponse
+    suspend fun searchHeroes(name : String?) : PaginatedApiResponse
 }

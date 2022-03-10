@@ -1,6 +1,6 @@
 package com.example.repository
 
-import com.example.models.ApiResponse
+import com.example.models.PaginatedApiResponse
 import com.example.models.Hero
 
 const val NEXT_PAGE_KEY = "nextPage"
@@ -398,9 +398,9 @@ class HeroRepositoryImpl : HeroRepository {
         )
     )
 
-    override suspend fun getAllHeroes(page: Int): ApiResponse {
+    override suspend fun getAllHeroes(page: Int): PaginatedApiResponse {
 
-        return ApiResponse(
+        return PaginatedApiResponse(
             success = true,
             message = "ok",
             prevPage = calculatePage(page = page)[PREVIOUS_PAGE_KEY],
@@ -429,8 +429,8 @@ class HeroRepositoryImpl : HeroRepository {
         return mapOf(PREVIOUS_PAGE_KEY to prevPage, NEXT_PAGE_KEY to nextPage)
     }
 
-    override suspend fun searchHeroes(name: String?): ApiResponse {
-        return ApiResponse(
+    override suspend fun searchHeroes(name: String?): PaginatedApiResponse {
+        return PaginatedApiResponse(
             success = true,
             message = "ok",
             heroes = findHeroes(query = name)

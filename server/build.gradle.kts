@@ -29,4 +29,9 @@ dependencies {
 
     implementation ("io.insert-koin:koin-ktor:$koinVersion")
     implementation ("io.insert-koin:koin-logger-slf4j:$koinVersion")
+
+    // database
+    implementation ("mysql:mysql-connector-java:8.0.11")
+    implementation ("org.ktorm:ktorm-core:3.2.0")
+    implementation ("org.ktorm:ktorm-support-mysql:3.2.0")
 }
