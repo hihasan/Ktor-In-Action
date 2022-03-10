@@ -1,5 +1,6 @@
 package com.example.repository
 
+import com.example.models.ToDoDraft
 import com.example.models.ToDoEntity
 
 interface TodoRepository {

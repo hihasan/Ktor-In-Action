@@ -7,6 +7,7 @@ plugins {
     application
     kotlin("jvm") version "1.6.10"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.6.10"
+
 }
 
 group = "com.example"
@@ -34,4 +35,6 @@ dependencies {
     implementation ("mysql:mysql-connector-java:8.0.11")
     implementation ("org.ktorm:ktorm-core:3.2.0")
     implementation ("org.ktorm:ktorm-support-mysql:3.2.0")
+
+    implementation ("io.ktor:ktor-gson:$ktorVersion")
 }

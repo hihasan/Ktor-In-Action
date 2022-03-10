@@ -1,5 +1,6 @@
 package com.example.repository
 
+import com.example.models.ToDoDraft
 import com.example.models.ToDoEntity
 
 class InMemoryToDoRepository : TodoRepository {
@@ -15,14 +16,13 @@ class InMemoryToDoRepository : TodoRepository {
     }
 
     override fun addToDO(draft: ToDoEntity): ToDoEntity {
-        val todoEntity = ToDoEntity(
-            id = todos.size +1,
-            title = draft.title,
-            body = draft.body
+        val todo = ToDoEntity(
+            id = todos.size + 1,
+            title = draft.title!!,
+            body = draft.body!!
         )
-        
-        todos.add(todoEntity)
-        return todoEntity
+        todos.add(todo)
+        return todo
     }
 
     override fun removeTodo(id: Int): ToDoEntity {

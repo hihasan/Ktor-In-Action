@@ -1,6 +1,7 @@
 package com.example.repository
 
 import com.example.db.DatabaseManager
+import com.example.models.ToDoDraft
 import com.example.models.ToDoEntity
 
 class MySQLTodoRepository : TodoRepository {

@@ -1,8 +1,10 @@
 package com.example.db
 
+import com.example.models.ToDoDraft
 import com.example.models.ToDoEntity
 import org.ktorm.database.Database
 import org.ktorm.dsl.eq
+import org.ktorm.dsl.insert
 import org.ktorm.dsl.insertAndGenerateKey
 import org.ktorm.entity.firstOrNull
 import org.ktorm.entity.sequenceOf
@@ -10,7 +12,7 @@ import org.ktorm.entity.toList
 
 class DatabaseManager {
     // config
-    private val hostname = "vm-core.fritz.box"
+    private val hostname = "localhost"
     private val databaseName = "ktor_todo"
     private val username = "root"
     private val password = "Appnap@2021"
@@ -33,12 +35,14 @@ class DatabaseManager {
     }
 
     fun addTodo(draft: ToDoEntity): ToDoEntity {
-        val insertedId = kTormDatabase.insertAndGenerateKey(DBTodoTable) {
+        //insertAndGenerateKey(DBTodoTable)
+        val insertedId = kTormDatabase.insert(DBTodoTable) {
+            set(DBTodoTable.id, draft.id)
             set(DBTodoTable.title, draft.title)
             set(DBTodoTable.body, draft.body)
-        } as Int
+        }
 
-        return ToDoEntity(insertedId, draft.title, draft.body)
+        return ToDoEntity(insertedId, draft.title!!, draft.body!!)
     }
 //
 //    fun updateTodo(id: Int, draft: ToDoEntity): Boolean {

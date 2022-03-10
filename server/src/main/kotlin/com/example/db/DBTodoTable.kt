@@ -6,7 +6,7 @@ import org.ktorm.schema.boolean
 import org.ktorm.schema.int
 import org.ktorm.schema.varchar
 
-object DBTodoTable : Table<DBTodoEntity> ("todo"){
+object DBTodoTable : Table<DBTodoEntity> ("tbl_todo"){
     val id = int("id").primaryKey().bindTo { it.id }
     val title = varchar("title").bindTo { it.title }
     val body = varchar("body").bindTo { it.body }
